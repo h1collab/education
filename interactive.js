@@ -43,3 +43,27 @@ addEventListener("scroll",()=>{
   const available=document.documentElement.scrollHeight-innerHeight;
   progress.style.width=(available?scrollY/available*100:100)+"%";
 },{passive:true});
+
+const courseSearch=document.querySelector("#course-search");
+if(courseSearch){
+  const cards=[...document.querySelectorAll(".catalog-card")];
+  const years=[...document.querySelectorAll(".catalog-year")];
+  const status=document.querySelector(".search-status");
+  courseSearch.addEventListener("input",()=>{
+    const query=courseSearch.value.trim().toLocaleLowerCase("it");
+    let visible=0;
+    cards.forEach(card=>{
+      const match=!query||card.textContent.toLocaleLowerCase("it").includes(query);
+      card.hidden=!match;
+      if(match) visible+=1;
+    });
+    years.forEach(year=>{
+      year.hidden=query&&!year.querySelector(".catalog-card:not([hidden])");
+    });
+    status.textContent=query
+      ? visible===1
+        ? "1 corso trovato."
+        : visible+" corsi trovati."
+      : "Tutti i corsi sono visibili.";
+  });
+}

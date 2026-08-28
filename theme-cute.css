@@ -29,3 +29,29 @@ body.calm-mode *{animation:none!important;transition:none!important}body.calm-mo
 @media(max-width:700px){.lesson-block{padding:28px 20px}.classroom-controls{left:12px;right:12px;justify-content:center}.catalog-hero:after,.course-hero:after,.unit-hero:after{display:none}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 @media print{.classroom-controls,.reading-progress,.topbar,.unit-nav{display:none!important}.lesson-block{break-inside:avoid;box-shadow:none}}
+
+/* Impaginazione desktop più raccolta e centrata. */
+@media(min-width:1100px){
+  .topbar,
+  .catalog-hero,
+  .course-hero,
+  .unit-hero,
+  .catalog-year,
+  .unit-index,
+  footer{
+    padding-left:max(40px,calc((100vw - 1180px)/2));
+    padding-right:max(40px,calc((100vw - 1180px)/2));
+  }
+  .course-layout{
+    width:min(1180px,calc(100% - 80px));
+    margin-left:auto;
+    margin-right:auto;
+    padding-left:0;
+    padding-right:0;
+  }
+  .engagement{max-width:1120px}
+  .lesson{max-width:1040px}
+  body.presentation-mode .lesson{max-width:1180px}
+}
+
+.catalog-search{max-width:650px;margin:34px 0 22px}.catalog-search label{display:block;font-size:13px;font-weight:800;margin-bottom:8px}.catalog-search input{width:100%;padding:15px 18px;border:2px solid var(--line);border-radius:18px;background:white;color:var(--ink);font:inherit;box-shadow:0 4px 0 var(--line)}.catalog-search input:focus{outline:3px solid rgba(96,121,232,.25);border-color:var(--blue)}.search-status{min-height:24px;margin:9px 2px 0!important;font-size:13px!important;color:var(--muted)!important}.catalog-card[hidden],.catalog-year[hidden]{display:none!important}
